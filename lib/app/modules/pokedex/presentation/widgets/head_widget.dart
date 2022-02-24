@@ -1,6 +1,6 @@
 import 'package:localization/localization.dart';
 import 'package:flutter/material.dart';
-import '../../../../../commons/themes/theme_notification.dart';
+import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/widgets/switch_theme_widget.dart';
 
 class HeadWidget extends StatefulWidget {
   const HeadWidget({
@@ -12,7 +12,6 @@ class HeadWidget extends StatefulWidget {
 }
 
 class _HeadWidgetState extends State<HeadWidget> {
-  var _theme = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +20,7 @@ class _HeadWidgetState extends State<HeadWidget> {
         Row(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 13, 0),
+              padding: const EdgeInsets.only(right: 13),
               child: Image.asset(
                 'assets/images/logo.png',
                 width: 27,
@@ -38,34 +37,7 @@ class _HeadWidgetState extends State<HeadWidget> {
             ),
           ],
         ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Theme.of(context).colorScheme.primary,
-              width: 1,
-            ),
-            borderRadius: BorderRadius.circular(40),
-          ),
-          padding: EdgeInsets.fromLTRB(6, 6, 6, 6),
-          height: 27,
-          width: 49,
-          child: Switch.adaptive(
-            activeColor: Theme.of(context).colorScheme.primary,
-            value: ThemeNotifier.themeNotifier.value
-                .toString()
-                .contains(ThemeMode.dark.toString()),
-            onChanged: (value) {
-              setState(() {
-                _theme = !_theme;
-              });
-
-              ThemeNotifier.themeNotifier.value =
-                  ThemeNotifier.themeNotifier.value == ThemeMode.light
-                      ? ThemeMode.dark
-                      : ThemeMode.light;
-            },
-          ),
-        ),
+        const SwitchThemeWidget(),
       ],
     );
   }

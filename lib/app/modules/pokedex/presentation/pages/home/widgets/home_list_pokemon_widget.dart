@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/pages/home/widgets/home_navigation_bottom_bar.dart';
 
 import '../../../../domain/models/pokemon_list_model.dart';
 import '../../../widgets/error_generic_widget.dart';
 import '../controllers/home_controller.dart';
 import 'home_search_pokemon_widget.dart';
 import 'pokemon_list_widget.dart';
+import 'pokemon_not_find_widget.dart';
 
 class HomeListPokemonWidget extends StatefulWidget {
   const HomeListPokemonWidget({
@@ -23,13 +23,16 @@ class _HomeListPokemonWidgetState
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HomeSearchPokemonWidget(search: (value) {
-          setState(() {
-            controller.setsearchh(value);
-          });
-        }),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 41, top: 51),
+          child: HomeSearchPokemonWidget(search: (value) {
+            setState(() {
+              controller.setSearchPokemon(value);
+            });
+          }),
+        ),
         FutureBuilder<PokemonListModel>(
-          future: controller.getPokemonList(controller.link),
+          future: controller.getPokemonList(controller.getLinkInitial()),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
@@ -49,37 +52,10 @@ class _HomeListPokemonWidgetState
                         PokemonListWidget(
                           listPokemon: snapshot.data,
                         ),
-                        HomeNavigationBottomBar(
-                          nextPage: (value) {
-                            setState(() {
-                              controller.getPokemonList(value);
-                            });
-                          },
-                          listPokemon: snapshot.data,
-                        )
                       ],
                     );
                   } else {
-                    return Column(
-                      children: const [
-                        Text(
-                          "Ops",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 138,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "Este pokemon não está aqui ;(",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    );
+                    return const PokemonNotFindWidget();
                   }
                 } else {
                   return const ErrorGenericWidget();

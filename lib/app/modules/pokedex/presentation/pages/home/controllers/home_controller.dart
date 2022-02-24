@@ -1,5 +1,4 @@
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_list_item_model.dart';
-
+import '../../../../domain/models/pokemon_list_item_model.dart';
 import '../../../../domain/models/pokemon_list_model.dart';
 import '../../../../infra/repositories/Pokemon_list_repository.dart';
 
@@ -7,43 +6,46 @@ enum typeSearch { search, normal }
 
 class HomeController {
   final _repository = PokemonListRepository();
-  var link = "https://pokeapi.co/api/v2/pokemon?limit=15";
-  PokemonListModel allpokemon = PokemonListModel();
-  String searchh = '';
+  var _linkInit = "https://pokeapi.co/api/v2/pokemon?limit=15";
 
-  setsearchh(s) {
-    searchh = s;
+  String _searchPokemon = '';
+
+  getLinkInitial() {
+    return _linkInit;
   }
 
-  Future<PokemonListModel> getPokemonList(linkArg) async {
-    if (searchh.isEmpty) {
-      linkArg ??= link;
-      link = linkArg;
+  setSearchPokemon(s) {
+    _searchPokemon = s;
+  }
 
-      var result = await _repository
-          .fetchPokemonListData(linkArg)
-          .onError((error, stackTrace) => throw Error());
+  Future<PokemonListModel> getPokemonListRepository(String link) async {
+    return await _repository
+        .fetchPokemonListData(link)
+        .onError((error, stackTrace) => throw Error());
+  }
 
-      return result;
+  Future<PokemonListModel> getPokemonList(_linkInitArg) async {
+    if (_searchPokemon.isEmpty) {
+      _linkInitArg ??= _linkInit;
+      _linkInit = _linkInitArg;
+      return await getPokemonListRepository(_linkInitArg);
     } else {
-      return search(searchh);
+      return searchPokemon(_searchPokemon);
     }
   }
 
-  Future<PokemonListModel> search(String search) async {
-    allpokemon = await _repository
-        .fetchPokemonListData("https://pokeapi.co/api/v2/pokemon?limit=1500")
-        .onError((error, stackTrace) => throw Error());
+  Future<PokemonListModel> searchPokemon(String search) async {
+    PokemonListModel _allPokemonListSearch = await getPokemonListRepository(
+        "https://pokeapi.co/api/v2/pokemon?limit=1500");
+    List<PokemonListItem> listPokemonMatchSearch = [];
 
-    List<PokemonListItem> listAux = [];
-    PokemonListModel searchpokemon = allpokemon;
-
-    allpokemon.results!.forEach((element) {
+    _allPokemonListSearch.results!.forEach((element) {
       if (element.name!.contains(search)) {
-        listAux.add(element);
+        listPokemonMatchSearch.add(element);
       }
     });
-    searchpokemon.results = listAux;
-    return searchpokemon;
+
+    _allPokemonListSearch.results = listPokemonMatchSearch;
+    return _allPokemonListSearch;
   }
 }

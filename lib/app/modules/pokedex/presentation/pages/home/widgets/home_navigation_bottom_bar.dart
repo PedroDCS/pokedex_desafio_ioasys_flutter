@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_list_model.dart';
+import '../../../../domain/models/pokemon_list_model.dart';
 
 class HomeNavigationBottomBar extends StatelessWidget {
   const HomeNavigationBottomBar({
