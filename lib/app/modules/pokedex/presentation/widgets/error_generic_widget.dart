@@ -14,10 +14,18 @@ class ErrorGenericWidget extends StatelessWidget {
         color: Colors.red,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: const [
           Icon(Icons.error_outline, color: Colors.amber),
           Text(
-            "Ocorreu algum erro para carregar a pagina, tente novamente mais tarde",
+            "Error",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Tente Novamente",
             style: TextStyle(
               color: Colors.white,
             ),

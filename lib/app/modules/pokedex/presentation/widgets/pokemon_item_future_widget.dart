@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_list_item_model.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_model.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/controllers/pokemon_item_controller.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/widgets/error_generic_widget.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/widgets/pikachu_running_widget.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/widgets/pokemon_item_widget.dart';
+import '../../domain/models/pokemon_model.dart';
+import '../controllers/pokemon_item_controller.dart';
+import 'error_generic_widget.dart';
+import 'pikachu_running_widget.dart';
+import 'pokemon_item_widget.dart';
 
 class PokemonItemFutureWidget extends StatelessWidget {
   const PokemonItemFutureWidget({

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'pikachu_running_widget.dart';
+import 'pokemon_item_name_widget.dart';
+import 'pokemon_item_number_widget.dart';
 
 import '../../../../../commons/colors/colors.dart';
-import '../../../../../commons/pokemon_formatter/pokemon_formater.dart';
 import '../../domain/models/pokemon_model.dart';
 
 class PokemonItemWidget extends StatelessWidget {
@@ -43,42 +45,22 @@ class PokemonItemWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Container(
-                margin: const EdgeInsets.only(right: 8),
-                width: double.maxFinite,
-                child: Text(
-                  '#${PokemonFormatter().formatNumber(pokeData.id)}',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontSize: 8,
-                    color: CustomColors().pokeColor(pokeData.types![0]),
-                  ),
-                ),
-              ),
+              PokemonItemNumberWidget(pokeData: pokeData),
               Image.network(
                 pokeData.sprite,
                 width: 71,
                 height: 72,
+                loadingBuilder: (BuildContext context, Widget child,
+                    ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  }
+                  return const Center(
+                    child: PikachuRunningWidget(height: 70, width: 71),
+                  );
+                },
               ),
-              Container(
-                width: double.infinity,
-                height: 26,
-                decoration: BoxDecoration(
-                  color: CustomColors().pokeColor(pokeData.types![0]),
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(7),
-                    bottomRight: Radius.circular(7),
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  PokemonFormatter().formatName(pokeData.name),
-                  style: const TextStyle(
-                    fontSize: 10,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              PokemonItemNameWidget(pokeData: pokeData),
             ],
           ),
         ));
