@@ -27,7 +27,8 @@ class PokedexModule extends Module {
           '/pokemon',
           transition: TransitionType.fadeIn,
           child: (context, args) => PokemonDetailsPage(
-            pokemon: args.data,
+            pokemon: args.data[0],
+            router: args.data[1],
           ),
         ),
       ];

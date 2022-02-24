@@ -8,9 +8,12 @@ import '../../../../domain/models/pokemon_model.dart';
 
 class PokemonItemWidget extends StatelessWidget {
   final PokemonModel pokeData;
+  final String router;
+
   const PokemonItemWidget({
     Key? key,
     required this.pokeData,
+    required this.router,
   }) : super(key: key);
 
   @override
@@ -18,9 +21,9 @@ class PokemonItemWidget extends StatelessWidget {
     return MaterialButton(
         padding: EdgeInsets.zero,
         onPressed: () {
-          Modular.to.pushNamed(
+          Modular.to.pushReplacementNamed(
             'pokemon',
-            arguments: pokeData,
+            arguments: [pokeData, router],
           );
         },
         child: Container(

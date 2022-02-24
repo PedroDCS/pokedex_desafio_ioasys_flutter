@@ -82,6 +82,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                                     if (snapshot.hasData) {
                                       return PokemonItemWidget(
                                         pokeData: snapshot.data!,
+                                        router: 'favorites',
                                       );
                                     } else {
                                       return const ErrorGenericWidget();

@@ -5,14 +5,15 @@ import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/
 
 import 'home_controller.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePageSplash extends StatefulWidget {
+  const HomePageSplash({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePageSplash> createState() => _HomePageSplashState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeController> {
+class _HomePageSplashState
+    extends ModularState<HomePageSplash, HomeController> {
   @override
   void initState() {
     super.initState();

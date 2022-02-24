@@ -56,6 +56,7 @@ class PokemonListWidget extends StatelessWidget {
                         if (snapshot.hasData) {
                           return PokemonItemWidget(
                             pokeData: snapshot.data!,
+                            router: '/pokedex/',
                           );
                         } else {
                           return const ErrorGenericWidget();
