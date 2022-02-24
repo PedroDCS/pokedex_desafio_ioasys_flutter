@@ -1,49 +1,41 @@
 import 'package:hive/hive.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_model.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/infra/repositories/pokemon_repositorie.dart';
+import '../../../../domain/models/pokemon_model.dart';
+import '../../../../infra/repositories/pokemon_repositorie.dart';
 
 class FavoritesController {
   final _repository = PokemonRepository();
+  List<int> listPokemonID = [];
 
-  Future<PokemonModel> getPokemon({required int pokemon}) async {
+  Future<PokemonModel> getFavoritePokemon({required pokemonID}) async {
     var result = await _repository
-        .fetchPokemonData(pokemon: pokemon.toString())
+        .fetchPokemonData(pokemon: pokemonID.toString())
         .onError((error, stackTrace) => throw Error());
     return result;
   }
 
-  List<int> listPokemonIndex = [];
-
-  getData() async {
-    var listBox = await Hive.openBox("pokemons");
-    var getPokeList = await listBox.get('pokemonList');
-    listPokemonIndex = getPokeList ?? [];
-
-    //Hive.close();
+  getFavoritesPokemonList() async {
+    var hivePokemonBox = await Hive.openBox("pokemons");
+    var hivePokemonindexList =
+        await hivePokemonBox.get('pokemonFavoritesIDList');
+    listPokemonID = hivePokemonindexList ?? [];
+    Hive.close();
   }
 
-  Future<void> addRemoveFavorite({required int index}) async {
-    var listBox = await Hive.openBox("pokemons");
-    var getPokeList = await listBox.get('pokemonList');
-    listPokemonIndex = getPokeList ?? [];
+  Future<void> addRemovePokemonFavorite({required int pokemonID}) async {
+    var hivePokemonBox = await Hive.openBox("pokemons");
+    var hivePokemonindexList =
+        await hivePokemonBox.get('pokemonFavoritesIDList');
+    listPokemonID = hivePokemonindexList ?? [];
 
-    var isOnList = listPokemonIndex.indexWhere((element) => element == index);
+    var isPokemonOnList = listPokemonID.indexWhere((id) => id == pokemonID);
 
-    if (isOnList >= 0) {
-      removedIdFromList(index);
+    if (isPokemonOnList >= 0) {
+      listPokemonID.remove(pokemonID);
     } else {
-      addIdList(index: index);
+      listPokemonID.add(pokemonID);
     }
 
-    await listBox.put('pokemonList', listPokemonIndex);
-    //Hive.close();
-  }
-
-  void addIdList({required int index}) {
-    listPokemonIndex.add(index);
-  }
-
-  void removedIdFromList(int index) {
-    listPokemonIndex.remove(index);
+    await hivePokemonBox.put('pokemonFavoritesIDList', listPokemonID);
+    Hive.close();
   }
 }

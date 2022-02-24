@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/widgets/pokemon_item_future_widget.dart';
 
 import '../../../../domain/models/pokemon_list_model.dart';
 import '../../../../domain/models/pokemon_model.dart';
@@ -28,35 +29,11 @@ class PokemonListWidget extends StatelessWidget {
         ),
         itemCount: listPokemon!.results!.length,
         itemBuilder: (_, index) {
-          var pokemon = listPokemon!.results![index];
-          return FutureBuilder<PokemonModel>(
-              future: _controller.getPokemon(pokemon: pokemon.name!),
-              builder: (context, snapshot) {
-                switch (snapshot.connectionState) {
-                  case ConnectionState.waiting:
-                    return const Center(
-                      child: PikachuRunningWidget(height: 150, width: 182.5),
-                    );
-                  case ConnectionState.active:
-                    return const Center(
-                      child: CircularProgressIndicator(color: Colors.green),
-                    );
-                  case ConnectionState.none:
-                    return const LinearProgressIndicator(
-                      value: 1,
-                      color: Colors.red,
-                    );
-                  default:
-                    if (snapshot.hasData) {
-                      return PokemonItemWidget(
-                        pokeData: snapshot.data!,
-                        router: '/pokedex/',
-                      );
-                    } else {
-                      return const ErrorGenericWidget();
-                    }
-                }
-              });
+          var pokemon = listPokemon?.results![index];
+          return PokemonItemFutureWidget(
+            pokemon: pokemon!.name!,
+            router: '/pokedex/',
+          );
         });
   }
 }

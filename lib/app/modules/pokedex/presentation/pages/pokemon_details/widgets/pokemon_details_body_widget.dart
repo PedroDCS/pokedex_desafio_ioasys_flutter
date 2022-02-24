@@ -36,8 +36,8 @@ class _PokemonDetailsBodyWidgetState extends State<PokemonDetailsBodyWidget> {
               alignment: Alignment.bottomRight,
               onPressed: () {
                 setState(() {
-                  _favController.addRemoveFavorite(
-                    index: int.parse(widget.pokemon.id),
+                  _favController.addRemovePokemonFavorite(
+                    pokemonID: int.parse(widget.pokemon.id),
                   );
                 });
               },
