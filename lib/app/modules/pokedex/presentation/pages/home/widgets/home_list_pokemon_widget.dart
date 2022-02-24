@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/pages/home/widgets/home_navigation_bottom_bar.dart';
 
 import '../../../../domain/models/pokemon_list_model.dart';
 import '../../../widgets/error_generic_widget.dart';
@@ -52,6 +53,14 @@ class _HomeListPokemonWidgetState
                         PokemonListWidget(
                           listPokemon: snapshot.data,
                         ),
+                        HomeNavigationBottomBar(
+                          nextPage: (value) {
+                            setState(() {
+                              controller.getPokemonList(value);
+                            });
+                          },
+                          listPokemon: snapshot.data,
+                        )
                       ],
                     );
                   } else {
