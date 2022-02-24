@@ -16,17 +16,16 @@ class FavoritesController {
 
   getData() async {
     var listBox = await Hive.openBox("pokemons");
-    if (await listBox.get('pokemonList') == null) {
-      listPokemonIndex = [];
-    } else {
-      listPokemonIndex = await listBox.get('pokemonList');
-    }
+    var getPokeList = await listBox.get('pokemonList');
+    listPokemonIndex = getPokeList ?? [];
+
     //Hive.close();
   }
 
   Future<void> addRemoveFavorite({required int index}) async {
     var listBox = await Hive.openBox("pokemons");
-    listPokemonIndex = await listBox.get("pokemonList");
+    var getPokeList = await listBox.get('pokemonList');
+    listPokemonIndex = getPokeList ?? [];
 
     var isOnList = listPokemonIndex.indexWhere((element) => element == index);
 

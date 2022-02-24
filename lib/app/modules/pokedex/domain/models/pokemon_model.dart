@@ -28,10 +28,16 @@ class PokemonModel {
     List<Moves> movesAux = [];
     List<Stat> statusAux = [];
     List<String> typesAux = [];
+    String sprite = '';
 
-    json['moves'].forEach((m) {
-      movesAux.add(Moves(m['move']['name'], m['move']['url']));
-    });
+    if (json['moves'].length == 0) {
+      movesAux.add(Moves('none', ''));
+      movesAux.add(Moves('none', ''));
+    } else {
+      json['moves'].forEach((m) {
+        movesAux.add(Moves(m['move']['name'], m['move']['url']));
+      });
+    }
 
     json['stats'].forEach((s) {
       statusAux.add(
@@ -52,8 +58,10 @@ class PokemonModel {
       moves: movesAux,
       status: statusAux,
       types: typesAux,
-      sprite:
-          "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${json['id']}.svg",
+      sprite: json['sprites']['other']['official-artwork']['front_default'] ??
+          json['sprites']['front_default'] ??
+          json['sprites']['versions']['generation-viii']['icons']
+              ['front_default'],
       specie: json['species']['url'],
     );
     return poke;

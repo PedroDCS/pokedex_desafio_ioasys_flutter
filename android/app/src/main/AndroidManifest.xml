@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pokedex_desafio_ioasys_flutter">
    <application
-        android:label="pokedex_desafio_ioasys_flutter"
+        android:label="Pokedex Camp ioasys"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

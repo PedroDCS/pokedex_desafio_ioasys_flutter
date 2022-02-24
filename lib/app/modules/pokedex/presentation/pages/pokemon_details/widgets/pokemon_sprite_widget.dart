@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../../../widgets/pikachu_running_widget.dart';
+import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/widgets/pikachu_running_widget.dart';
 
 class PokemonSpriteWidget extends StatelessWidget {
   const PokemonSpriteWidget({
@@ -17,13 +16,19 @@ class PokemonSpriteWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.network(
+          Image.network(
             sprite,
             width: 200,
             height: 200,
-            placeholderBuilder: (BuildContext context) => Container(
-                padding: const EdgeInsets.all(0.0),
-                child: const PikachuRunningWidget(height: 150, width: 186.5)),
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return const Center(
+                child: PikachuRunningWidget(height: 150, width: 186.5),
+              );
+            },
           ),
         ],
       ),

@@ -54,10 +54,8 @@ class _PokemonDetailsBodyWidgetState extends State<PokemonDetailsBodyWidget> {
         PokemonInfosWidget(
           pokeWeight: double.parse(widget.pokemon.weight),
           pokeHeight: double.parse(widget.pokemon.height),
-          move1: widget.pokemon
-              .moves![Random().nextInt(widget.pokemon.moves!.length - 1)].name,
-          move2: widget.pokemon
-              .moves![Random().nextInt(widget.pokemon.moves!.length - 1)].name,
+          move1: widget.pokemon.moves![0].name,
+          move2: widget.pokemon.moves![1].name,
         ),
         PokemonDescWidget(specie: widget.pokemon.specie),
         PokemonBaseStatsWidget(

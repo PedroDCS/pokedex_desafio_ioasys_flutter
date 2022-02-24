@@ -51,7 +51,9 @@ class _HeadWidgetState extends State<HeadWidget> {
           width: 49,
           child: Switch.adaptive(
             activeColor: Theme.of(context).colorScheme.primary,
-            value: _theme,
+            value: ThemeNotifier.themeNotifier.value
+                .toString()
+                .contains(ThemeMode.dark.toString()),
             onChanged: (value) {
               setState(() {
                 _theme = !_theme;
