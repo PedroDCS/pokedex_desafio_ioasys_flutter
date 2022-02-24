@@ -16,7 +16,7 @@ class PokemonDescWidget extends StatelessWidget {
     final _controller = PokemonDetailsController();
 
     return FutureBuilder<PokemonSpecieModel>(
-      future: _controller.getPokemonDetails(specie),
+      future: _controller.getPokemonSpecie(specie),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:

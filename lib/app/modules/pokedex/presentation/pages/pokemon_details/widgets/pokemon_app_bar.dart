@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:pokedex_desafio_ioasys_flutter/commons/pokemon_formatter/pokemon_formater.dart';
+import '../../../../../../../commons/pokemon_formatter/pokemon_formater.dart';
 
 class PokemonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String name;
@@ -21,7 +21,7 @@ class PokemonAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       shadowColor: Colors.transparent,
       leading: IconButton(
-        icon: Icon(Icons.arrow_back),
+        icon: const Icon(Icons.arrow_back),
         onPressed: () {
           Modular.to.pushReplacementNamed(router);
         },

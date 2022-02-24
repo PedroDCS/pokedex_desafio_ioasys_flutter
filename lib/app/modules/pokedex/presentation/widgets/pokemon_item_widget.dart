@@ -20,10 +20,17 @@ class PokemonItemWidget extends StatelessWidget {
     return MaterialButton(
         padding: EdgeInsets.zero,
         onPressed: () {
-          Modular.to.pushReplacementNamed(
-            'pokemon',
-            arguments: [pokeData, router],
-          );
+          if (router == 'favorites') {
+            Modular.to.pushReplacementNamed(
+              'pokemon',
+              arguments: [pokeData, router],
+            );
+          } else {
+            Modular.to.pushNamed(
+              'pokemon',
+              arguments: [pokeData, router],
+            );
+          }
         },
         child: Container(
           decoration: BoxDecoration(

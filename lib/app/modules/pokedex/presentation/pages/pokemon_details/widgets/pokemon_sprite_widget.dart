@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/widgets/pikachu_running_widget.dart';
+import '../../../widgets/pikachu_running_widget.dart';
 
 class PokemonSpriteWidget extends StatelessWidget {
   const PokemonSpriteWidget({
