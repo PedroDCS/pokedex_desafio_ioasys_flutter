@@ -1,15 +1,12 @@
 {
-    "title_converter": "Currency Converter",
-    "brl": "Reais",
-    "usd": "Dolares",
-    "eur": "Euros",
-    "brl_symbol": "R$",
-    "usd_symbol": "U$",
-    "eur_symbol": "£$",
-    "title_about": "Camp ioasys",
-
-
-
     "title": "ioasys pokédex",
-    "search": "Search"
+    "search": "Search",
+    "goback": "Go Back",
+    "favoriteTitle": "  My Favorites",
+    "pokemonNotFound": "This pokemon is not here ;(",
+    "baseStats": "Base Stats",
+    "weight": "Weight",
+    "height": "Height",
+    "moves": "Moves",
+    "tryAgain": "Try Again"
 }

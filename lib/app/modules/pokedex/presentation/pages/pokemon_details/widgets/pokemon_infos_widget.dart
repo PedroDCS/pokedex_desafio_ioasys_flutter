@@ -1,3 +1,4 @@
+import 'package:localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'pokemon_info_widget.dart';
 
@@ -24,18 +25,18 @@ class PokemonInfosWidget extends StatelessWidget {
         children: [
           PokemonInfoWidget(
             icon: const AssetImage('assets/icons/balance.png'),
-            infoType: 'Weight',
+            infoType: 'weight'.i18n(),
             info: '${pokeWeight / 10} Kg',
             useIcon: true,
           ),
           PokemonInfoWidget(
             icon: const AssetImage('assets/icons/scale.png'),
-            infoType: 'Height',
+            infoType: 'height'.i18n(),
             info: '${pokeHeight / 10} m',
             useIcon: true,
           ),
           PokemonInfoWidget(
-            infoType: 'Moves',
+            infoType: 'moves'.i18n(),
             info: '$move1 \n $move2',
             useIcon: false,
           ),

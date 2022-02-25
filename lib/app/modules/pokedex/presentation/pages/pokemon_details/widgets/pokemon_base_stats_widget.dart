@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pokemon_base_stats_list.dart';
+import 'package:localization/localization.dart';
 
 import '../../../../../../../commons/colors/colors.dart';
 
@@ -22,7 +23,7 @@ class PokemonBaseStatsWidget extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.only(bottom: 20),
           child: Text(
-            "Base Stats",
+            'baseStats'.i18n(),
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w900,

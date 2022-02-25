@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 class ErrorGenericWidget extends StatelessWidget {
   const ErrorGenericWidget({
@@ -16,17 +17,17 @@ class ErrorGenericWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          Icon(Icons.error_outline, color: Colors.amber),
-          Text(
+        children: [
+          const Icon(Icons.error_outline, color: Colors.amber),
+          const Text(
             "Error",
             style: TextStyle(
               color: Colors.white,
             ),
           ),
           Text(
-            "Tente Novamente",
-            style: TextStyle(
+            'tryAgain'.i18n(),
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),

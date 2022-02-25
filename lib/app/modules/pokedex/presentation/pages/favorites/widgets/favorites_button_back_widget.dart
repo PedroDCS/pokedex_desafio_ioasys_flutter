@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:localization/localization.dart';
 
 class FavoritesButtonBackWidget extends StatelessWidget {
   const FavoritesButtonBackWidget({
@@ -16,9 +17,9 @@ class FavoritesButtonBackWidget extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back),
         ),
-        const Text(
-          "Voltar",
-          style: TextStyle(color: Colors.grey),
+        Text(
+          'goback'.i18n(),
+          style: const TextStyle(color: Colors.grey),
         )
       ],
     );

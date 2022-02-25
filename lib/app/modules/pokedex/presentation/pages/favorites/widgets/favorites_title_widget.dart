@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 class FavoritesTitleWidget extends StatelessWidget {
   const FavoritesTitleWidget({
@@ -16,7 +17,7 @@ class FavoritesTitleWidget extends StatelessWidget {
           size: 30,
         ),
         Text(
-          '  Meus favoritos',
+          'favoriteTitle'.i18n(),
           style: TextStyle(
               color: Theme.of(context).colorScheme.primary, fontSize: 18),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 class PokemonNotFindWidget extends StatelessWidget {
   const PokemonNotFindWidget({
@@ -8,8 +9,8 @@ class PokemonNotFindWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        Text(
+      children: [
+        const Text(
           "Ops",
           style: TextStyle(
             color: Colors.grey,
@@ -18,8 +19,8 @@ class PokemonNotFindWidget extends StatelessWidget {
           ),
         ),
         Text(
-          "Este pokemon não está aqui ;(",
-          style: TextStyle(
+          'pokemonNotFound'.i18n(),
+          style: const TextStyle(
             color: Colors.grey,
             fontSize: 18,
             fontWeight: FontWeight.bold,
