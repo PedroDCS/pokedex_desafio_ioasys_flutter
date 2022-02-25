@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../domain/entities/pokemon_entity.dart';
 import '../../favorites/controller/favorites_controller.dart';
 import 'pokemon_base_stats_widget.dart';
@@ -21,10 +22,9 @@ class PokemonDetailsContainerWidget extends StatefulWidget {
 }
 
 class _PokemonDetailsContainerWidgetState
-    extends State<PokemonDetailsContainerWidget> {
+    extends ModularState<PokemonDetailsContainerWidget, FavoritesController> {
   @override
   Widget build(BuildContext context) {
-    FavoritesController _favController = FavoritesController();
     return Column(
       children: [
         Container(
@@ -35,7 +35,7 @@ class _PokemonDetailsContainerWidgetState
               alignment: Alignment.bottomRight,
               onPressed: () {
                 setState(() {
-                  _favController.addRemovePokemonFavorite(
+                  controller.addRemovePokemonFavorite(
                     pokemonID: widget.pokemon.id,
                   );
                 });
