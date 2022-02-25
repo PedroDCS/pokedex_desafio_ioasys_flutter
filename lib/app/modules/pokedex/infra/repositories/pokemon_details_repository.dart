@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import '../../domain/entities/pokemon_desc_entity.dart';
 import '../../domain/repositories/pokemon_description_repository_interface.dart';
 
-import 'models/pokemon_desc_entity.dart';
+import 'models/pokemon_desc_model.dart';
 
 class PokemonDescriptionRepository extends IPokemonDescriptionRepository {
   final Dio _dio = Dio();
