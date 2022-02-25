@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'pikachu_running_widget.dart';
+import '../../../../../commons/pikachu_running_widget.dart';
 import 'pokemon_item_name_widget.dart';
 import 'pokemon_item_number_widget.dart';
 

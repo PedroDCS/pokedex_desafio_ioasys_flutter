@@ -1,5 +1,5 @@
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_model.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/infra/repositories/pokemon_repositorie.dart';
+import '../../domain/models/pokemon_model.dart';
+import '../../infra/repositories/pokemon_repositorie.dart';
 
 class PokemonItemController {
   final _repository = PokemonRepository();

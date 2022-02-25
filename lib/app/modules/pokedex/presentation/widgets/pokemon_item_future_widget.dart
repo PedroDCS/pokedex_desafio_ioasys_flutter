@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../domain/models/pokemon_model.dart';
 import '../controllers/pokemon_item_controller.dart';
 import 'error_generic_widget.dart';
-import 'pikachu_running_widget.dart';
+import '../../../../../commons/pikachu_running_widget.dart';
 import 'pokemon_item_widget.dart';
 
 class PokemonItemFutureWidget extends StatelessWidget {

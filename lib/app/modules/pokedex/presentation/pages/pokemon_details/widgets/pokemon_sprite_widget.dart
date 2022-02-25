@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/pikachu_running_widget.dart';
+import '../../../../../../../commons/pikachu_running_widget.dart';
 
 class PokemonSpriteWidget extends StatelessWidget {
   const PokemonSpriteWidget({
