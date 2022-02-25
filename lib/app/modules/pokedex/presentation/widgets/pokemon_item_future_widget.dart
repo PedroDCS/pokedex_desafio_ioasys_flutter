@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/models/pokemon_model.dart';
+import '../../../../../commons/pikachu_running_widget.dart';
+import '../../domain/entities/pokemon_entity.dart';
 import '../controllers/pokemon_item_controller.dart';
 import 'error_generic_widget.dart';
-import '../../../../../commons/pikachu_running_widget.dart';
 import 'pokemon_item_widget.dart';
 
 class PokemonItemFutureWidget extends StatelessWidget {
@@ -20,7 +20,7 @@ class PokemonItemFutureWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final _controller = PokemonItemController();
 
-    return FutureBuilder<PokemonModel>(
+    return FutureBuilder<PokemonEntity>(
         future: _controller.getPokemon(pokemon: pokemon),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {

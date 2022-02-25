@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../domain/models/pokemon_model.dart';
-import '../../../../../commons/colors/colors.dart';
-import '../../../../../commons/pokemon_formatter/pokemon_formater.dart';
+import '../../domain/entities/pokemon_entity.dart';
+import '../../domain/usecases/pokemon_colors.dart';
+import '../../domain/usecases/pokemon_formater.dart';
 
 class PokemonItemNameWidget extends StatelessWidget {
   const PokemonItemNameWidget({
@@ -9,7 +9,7 @@ class PokemonItemNameWidget extends StatelessWidget {
     required this.pokeData,
   }) : super(key: key);
 
-  final PokemonModel pokeData;
+  final PokemonEntity pokeData;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class PokemonItemNameWidget extends StatelessWidget {
       width: double.infinity,
       height: 26,
       decoration: BoxDecoration(
-        color: CustomColors().pokeColor(pokeData.types![0]),
+        color: CustomColors().pokeColor(pokeData.types[0]),
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(7),
           bottomRight: Radius.circular(7),

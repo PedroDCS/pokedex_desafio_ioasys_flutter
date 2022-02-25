@@ -1,7 +1,9 @@
 class PokemonFormatter {
   String formatNumber(String number) {
-    var auxNumber = double.parse(number);
-    if (auxNumber < 10) {
+    var auxNumber = double.tryParse(number);
+    if (auxNumber == null || auxNumber == double.nan) {
+      return "XXX";
+    } else if (auxNumber < 10) {
       return "00$number";
     } else if (auxNumber < 100) {
       return "0$number";

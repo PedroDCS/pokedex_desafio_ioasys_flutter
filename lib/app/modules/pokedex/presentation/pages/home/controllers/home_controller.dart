@@ -1,5 +1,6 @@
-import '../../../../domain/models/pokemon_list_item_model.dart';
-import '../../../../domain/models/pokemon_list_model.dart';
+import '../../../../domain/entities/pokemon_list_entity.dart';
+import '../../../../domain/entities/pokemon_list_item_entity.dart';
+
 import '../../../../infra/repositories/Pokemon_list_repository.dart';
 
 enum typeSearch { search, normal }
@@ -18,13 +19,13 @@ class HomeController {
     _searchPokemon = s;
   }
 
-  Future<PokemonListModel> getPokemonListRepository(String link) async {
+  Future<PokemonListEntity> getPokemonListRepository(String link) async {
     return await _repository
-        .fetchPokemonListData(link)
+        .getPokemonList(link: link)
         .onError((error, stackTrace) => throw Error());
   }
 
-  Future<PokemonListModel> getPokemonList(_linkInitArg) async {
+  Future<PokemonListEntity> getPokemonList(_linkInitArg) async {
     if (_searchPokemon.isEmpty) {
       _linkInitArg ??= _linkInit;
       _linkInit = _linkInitArg;
@@ -34,18 +35,18 @@ class HomeController {
     }
   }
 
-  Future<PokemonListModel> searchPokemon(String search) async {
-    PokemonListModel _allPokemonListSearch = await getPokemonListRepository(
+  Future<PokemonListEntity> searchPokemon(String search) async {
+    PokemonListEntity _allPokemonListSearch = await getPokemonListRepository(
         "https://pokeapi.co/api/v2/pokemon?limit=1500");
-    List<PokemonListItem> listPokemonMatchSearch = [];
+    List<PokemonListItemEntity> listPokemonMatchSearch = [];
 
-    _allPokemonListSearch.results!.forEach((element) {
-      if (element.name!.contains(search)) {
+    _allPokemonListSearch.pokemons.forEach((element) {
+      if (element.name.contains(search)) {
         listPokemonMatchSearch.add(element);
       }
     });
 
-    _allPokemonListSearch.results = listPokemonMatchSearch;
+    _allPokemonListSearch.pokemons = listPokemonMatchSearch;
     return _allPokemonListSearch;
   }
 }

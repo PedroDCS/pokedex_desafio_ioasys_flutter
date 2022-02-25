@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../commons/themes/theme_notification.dart';
+import '../../domain/usecases/themes/theme_notification.dart';
 
 class SwitchThemeWidget extends StatefulWidget {
   const SwitchThemeWidget({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../domain/entities/pokemon_desc_entity.dart';
 
-import '../../../../domain/models/pokemon_specie_model.dart';
 import '../../../widgets/error_generic_widget.dart';
 import '../controller/pokemon_details_controller.dart';
 
@@ -15,7 +15,7 @@ class PokemonDescWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final _controller = PokemonDetailsController();
 
-    return FutureBuilder<PokemonSpecieModel>(
+    return FutureBuilder<PokemonDescriptionEntity>(
       future: _controller.getPokemonSpecie(specie),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
@@ -33,7 +33,7 @@ class PokemonDescWidget extends StatelessWidget {
               return Container(
                 width: double.infinity,
                 padding: const EdgeInsets.only(top: 30, bottom: 30),
-                child: Text(snapshot.data!.flavor_text!,
+                child: Text(snapshot.data!.flavortext,
                     style: const TextStyle(fontSize: 14)),
               );
             } else {

@@ -9,9 +9,9 @@ class HomeGoToFavoritesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 22.55),
+      padding: const EdgeInsets.only(left: 22.55),
       child: IconButton(
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           iconSize: 30,
           color: Theme.of(context).colorScheme.primary,
           onPressed: () {

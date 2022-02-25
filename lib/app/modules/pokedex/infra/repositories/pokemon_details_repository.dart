@@ -1,12 +1,16 @@
 import 'package:dio/dio.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_list_model.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_specie_model.dart';
+import '../../domain/entities/pokemon_desc_entity.dart';
+import '../../domain/repositories/pokemon_description_repository_interface.dart';
 
-class PokemonDetailsRepository {
+import 'models/pokemon_desc_entity.dart';
+
+class PokemonDescriptionRepository extends IPokemonDescriptionRepository {
   final Dio _dio = Dio();
 
-  Future<PokemonSpecieModel> fetchPokemonDetailsData(String link) async {
+  @override
+  Future<PokemonDescriptionEntity> fetchPokemonData(
+      {required String link}) async {
     final _response = await _dio.get(link);
-    return PokemonSpecieModel.fromJson(_response.data);
+    return PokemonDescriptionModel.fromJson(_response.data);
   }
 }

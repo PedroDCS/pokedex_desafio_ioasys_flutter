@@ -1,12 +1,12 @@
 import 'package:hive/hive.dart';
-import '../../../../domain/models/pokemon_model.dart';
+import '../../../../domain/entities/pokemon_entity.dart';
 import '../../../../infra/repositories/pokemon_repositorie.dart';
 
 class FavoritesController {
   final _repository = PokemonRepository();
   List<int> listPokemonID = [];
 
-  Future<PokemonModel> getFavoritePokemon({required pokemonID}) async {
+  Future<PokemonEntity> getFavoritePokemon({required pokemonID}) async {
     var result = await _repository
         .fetchPokemonData(pokemon: pokemonID.toString())
         .onError((error, stackTrace) => throw Error());

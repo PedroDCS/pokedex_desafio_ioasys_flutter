@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyThemes {
   static final darkTheme = ThemeData(
     fontFamily: "Poppins",
-    scaffoldBackgroundColor: Color(0xFF212121),
+    scaffoldBackgroundColor: const Color(0xFF212121),
     iconTheme: const IconThemeData(color: Color(0xFFEC0344)),
     primaryColor: Colors.white,
     colorScheme: const ColorScheme.dark(
@@ -14,7 +14,7 @@ class MyThemes {
 
   static final lightTheme = ThemeData(
     fontFamily: "Poppins",
-    scaffoldBackgroundColor: Color(0xFFF7F7F7),
+    scaffoldBackgroundColor: const Color(0xFFF7F7F7),
     iconTheme: const IconThemeData(color: Color(0xFFEC0344)),
     primaryColor: Colors.black,
     colorScheme: const ColorScheme.light(

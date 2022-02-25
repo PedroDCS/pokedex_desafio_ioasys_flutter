@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'pokemon_base_stats_list.dart';
 import 'package:localization/localization.dart';
 
-import '../../../../../../../commons/colors/colors.dart';
+import '../../../../domain/usecases/pokemon_colors.dart';
 
 class PokemonBaseStatsWidget extends StatelessWidget {
   const PokemonBaseStatsWidget({

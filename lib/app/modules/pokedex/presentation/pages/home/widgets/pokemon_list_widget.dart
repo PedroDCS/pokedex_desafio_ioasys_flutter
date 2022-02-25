@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../../../domain/entities/pokemon_list_entity.dart';
 
-import '../../../../domain/models/pokemon_list_model.dart';
 import '../../../widgets/pokemon_item_future_widget.dart';
 
 class PokemonListWidget extends StatelessWidget {
-  final PokemonListModel? listPokemon;
+  final PokemonListEntity? listPokemon;
 
   const PokemonListWidget({Key? key, required this.listPokemon})
       : super(key: key);
@@ -20,11 +20,11 @@ class PokemonListWidget extends StatelessWidget {
           crossAxisSpacing: 18,
           mainAxisSpacing: 18,
         ),
-        itemCount: listPokemon!.results!.length,
+        itemCount: listPokemon!.pokemons.length,
         itemBuilder: (_, index) {
-          var pokemon = listPokemon?.results![index];
+          var pokemon = listPokemon?.pokemons[index];
           return PokemonItemFutureWidget(
-            pokemon: pokemon!.name!,
+            pokemon: pokemon!.name,
             router: '/pokedex/',
           );
         });

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '../../../../../commons/pikachu_running_widget.dart';
+import '../../domain/entities/pokemon_entity.dart';
+import '../../domain/usecases/pokemon_colors.dart';
 import 'pokemon_item_name_widget.dart';
 import 'pokemon_item_number_widget.dart';
 
-import '../../../../../commons/colors/colors.dart';
-import '../../domain/models/pokemon_model.dart';
-
 class PokemonItemWidget extends StatelessWidget {
-  final PokemonModel pokeData;
+  final PokemonEntity pokeData;
   final String router;
 
   const PokemonItemWidget({
@@ -38,7 +38,7 @@ class PokemonItemWidget extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(
               color: CustomColors().pokeColor(
-                pokeData.types![0],
+                pokeData.types[0],
               ),
             ),
             borderRadius: BorderRadius.circular(8),

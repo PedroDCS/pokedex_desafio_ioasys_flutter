@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/domain/models/pokemon_model.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/pages/pokemon_details/widgets/pokemon_details_container_widget.dart';
+import '../../../../domain/entities/pokemon_entity.dart';
+import 'pokemon_details_container_widget.dart';
 
 class PokemonDetailsBodyWidget extends StatelessWidget {
   const PokemonDetailsBodyWidget({
@@ -8,7 +8,7 @@ class PokemonDetailsBodyWidget extends StatelessWidget {
     required this.pokemon,
   }) : super(key: key);
 
-  final PokemonModel pokemon;
+  final PokemonEntity pokemon;
 
   @override
   Widget build(BuildContext context) {

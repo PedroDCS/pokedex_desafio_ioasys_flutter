@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../../../../commons/colors/colors.dart';
-import '../../../../../../../commons/pokemon_formatter/pokemon_formater.dart';
+import '../../../../domain/usecases/pokemon_colors.dart';
+import '../../../../domain/usecases/pokemon_formater.dart';
 
 class PokemonBaseStatsList extends StatelessWidget {
   const PokemonBaseStatsList({
@@ -36,13 +36,13 @@ class PokemonBaseStatsList extends StatelessWidget {
                   ),
                 ),
                 title: Text(
-                  _formatter.formatNumber(status.value),
+                  _formatter.formatNumber(status.value.toString()),
                 ),
                 trailing: SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
                   child: LinearProgressIndicator(
                     color: _color.pokeColor(type),
-                    value: double.parse(status.value) / 100,
+                    value: double.parse(status.value.toString()) / 100,
                     semanticsLabel: status.name,
                   ),
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../../../../commons/pokemon_formatter/pokemon_formater.dart';
+import '../../../../domain/usecases/pokemon_formater.dart';
 
 class PokemonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String name;

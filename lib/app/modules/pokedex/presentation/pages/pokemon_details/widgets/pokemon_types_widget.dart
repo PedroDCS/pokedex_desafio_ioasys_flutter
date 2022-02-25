@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../commons/colors/colors.dart';
-import '../../../../../../../commons/pokemon_formatter/pokemon_formater.dart';
+import '../../../../domain/usecases/pokemon_colors.dart';
+import '../../../../domain/usecases/pokemon_formater.dart';
 
 class PokemonTypesWidget extends StatelessWidget {
   const PokemonTypesWidget({

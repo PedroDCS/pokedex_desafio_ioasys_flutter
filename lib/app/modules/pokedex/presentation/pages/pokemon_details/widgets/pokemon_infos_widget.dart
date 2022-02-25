@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'pokemon_info_widget.dart';
 
 class PokemonInfosWidget extends StatelessWidget {
-  final double pokeWeight;
-  final double pokeHeight;
+  final int pokeWeight;
+  final int pokeHeight;
   final String move1;
   final String move2;
 

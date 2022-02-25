@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../domain/models/pokemon_model.dart';
-import '../../../../../commons/colors/colors.dart';
-import '../../../../../commons/pokemon_formatter/pokemon_formater.dart';
+import '../../domain/entities/pokemon_entity.dart';
+import '../../domain/usecases/pokemon_colors.dart';
+import '../../domain/usecases/pokemon_formater.dart';
 
 class PokemonItemNumberWidget extends StatelessWidget {
   const PokemonItemNumberWidget({
@@ -9,7 +9,7 @@ class PokemonItemNumberWidget extends StatelessWidget {
     required this.pokeData,
   }) : super(key: key);
 
-  final PokemonModel pokeData;
+  final PokemonEntity pokeData;
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,11 @@ class PokemonItemNumberWidget extends StatelessWidget {
       margin: const EdgeInsets.only(right: 8),
       width: double.maxFinite,
       child: Text(
-        '#${PokemonFormatter().formatNumber(pokeData.id)}',
+        '#${PokemonFormatter().formatNumber(pokeData.id.toString())}',
         textAlign: TextAlign.right,
         style: TextStyle(
           fontSize: 8,
-          color: CustomColors().pokeColor(pokeData.types![0]),
+          color: CustomColors().pokeColor(pokeData.types[0]),
         ),
       ),
     );

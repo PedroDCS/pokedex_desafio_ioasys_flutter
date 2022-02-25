@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../domain/models/pokemon_list_model.dart';
+import '../../../../domain/entities/pokemon_list_entity.dart';
 
 class HomeNavigationBottomBar extends StatelessWidget {
   const HomeNavigationBottomBar({
@@ -9,7 +9,7 @@ class HomeNavigationBottomBar extends StatelessWidget {
   }) : super(key: key);
 
   final Function nextPage;
-  final PokemonListModel? listPokemon;
+  final PokemonListEntity? listPokemon;
 
   @override
   Widget build(BuildContext context) {

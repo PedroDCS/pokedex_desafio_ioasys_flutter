@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:pokedex_desafio_ioasys_flutter/app/modules/pokedex/presentation/pages/home/widgets/home_navigation_bottom_bar.dart';
+import '../../../../domain/entities/pokemon_list_entity.dart';
+import 'home_navigation_bottom_bar.dart';
 
-import '../../../../domain/models/pokemon_list_model.dart';
 import '../../../widgets/error_generic_widget.dart';
 import '../controllers/home_controller.dart';
 import 'home_search_pokemon_widget.dart';
@@ -32,7 +32,7 @@ class _HomeListPokemonWidgetState
             });
           }),
         ),
-        FutureBuilder<PokemonListModel>(
+        FutureBuilder<PokemonListEntity>(
           future: controller.getPokemonList(controller.getLinkInitial()),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
@@ -47,7 +47,7 @@ class _HomeListPokemonWidgetState
                 );
               default:
                 if (snapshot.hasData) {
-                  if (snapshot.data!.results!.isNotEmpty) {
+                  if (snapshot.data!.pokemons.isNotEmpty) {
                     return Column(
                       children: [
                         PokemonListWidget(

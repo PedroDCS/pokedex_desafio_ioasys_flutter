@@ -16,7 +16,7 @@ class PokedexModule extends Module {
         ChildRoute(
           '/favorites',
           transition: TransitionType.fadeIn,
-          child: (context, args) => FavoritesPage(),
+          child: (context, args) => const FavoritesPage(),
         ),
         ChildRoute(
           '/pokemon',
