@@ -1,16 +1,44 @@
 # pokedex_desafio_ioasys_flutter
 
-A new Flutter project.
+<p> Aplicativo em Flutter que funciona como uma "Pokedex"</p>
 
-## Getting Started
+O Aplicativo consome uma api [PokeApi](https://pokeapi.co/) que retorna uma lista com os pokemons e seus dados <br>
+ 
+## O Aplicativo Possui os Seguintes Modulos e telas
+### Modulo splash
+>tela splash
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Modulo Pokedex </br>
+>tela inicial com listagem de pokémon
+>
+>tela busca de pokémons
+>
+>tela de pokémons favoritos
+>
+>tela de detalhes dos pokémons
+>
+</br>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Foram Utilizados os seguintes pacotes
+localization: Para Mudar o idioma da aplicação</br>
+flutter_modular: Para deixar a aplicação modularizada</br>
+dio: Para fazer requisições a API</br>
+hive e hive_flutter: Para Salvar os pokemons favoritos em memoria local</br></br>
+  
+<div align="center">
+  <img alt="jpeg" src="https://firebasestorage.googleapis.com/v0/b/projetos-p.appspot.com/o/github%2Fpokedexx%2FWhatsApp%20Image%202022-02-24%20at%2021.47.34.jpeg?alt=media&token=d3e22428-aa15-4c4a-a4e7-0d00eaf85dca" width= 200 />
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+  <img alt="jpeg" src="https://firebasestorage.googleapis.com/v0/b/projetos-p.appspot.com/o/github%2Fpokedexx%2FWhatsApp%20Image%202022-02-24%20at%2021.47.34%20(1).jpeg?alt=media&token=80549553-f9a7-4b72-a966-21770def325f" width= 200 />
+
+
+
+
+  <img alt="jpeg" src="https://firebasestorage.googleapis.com/v0/b/projetos-p.appspot.com/o/github%2Fpokedexx%2FWhatsApp%20Image%202022-02-24%20at%2021.47.34%20(3).jpeg?alt=media&token=3fd97d5f-cbad-4b89-9102-7a0f4e12c9a8" width= 200 />
+
+
+
+  <img alt="jpeg" src="https://firebasestorage.googleapis.com/v0/b/projetos-p.appspot.com/o/github%2Fpokedexx%2FWhatsApp%20Image%202022-02-24%20at%2021.47.34%20(4).jpeg?alt=media&token=529c282c-a402-491b-882e-2126e68d1e35" width= 200 />
+</div>
