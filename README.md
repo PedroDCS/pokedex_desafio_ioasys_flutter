@@ -27,9 +27,8 @@ dio: Para fazer requisições a API</br>
 hive e hive_flutter: Para Salvar os pokemons favoritos em memoria local</br></br>
   
 <div align="center">
-
-  <img src="assets/readmeImages/image1.jpeg?raw=true" width="300" >
- <img src="assets/readmeImages/image2.jpeg?raw=true" width="300">
- <img src="assets/readmeImages/image3.jpeg?raw=true" width="300">
- <img src="assets/readmeImages/image4.jpeg?raw=true" width="300" >
+    <img src="assets/readmeImages/image1.jpeg?raw=true" width="300" >
+    <img src="assets/readmeImages/image2.jpeg?raw=true" width="300">
+    <img src="assets/readmeImages/image3.jpeg?raw=true" width="300">
+    <img src="assets/readmeImages/image4.jpeg?raw=true" width="300" >
 </div>
